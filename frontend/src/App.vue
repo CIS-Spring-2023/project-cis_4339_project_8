@@ -30,6 +30,16 @@ export default {
                 <span
                   style="position: relative; top: 6px"
                   class="material-icons"
+                  >login</span
+                >
+                Login
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/dashboard">
+                <span
+                  style="position: relative; top: 6px"
+                  class="material-icons"
                   >dashboard</span
                 >
                 Dashboard

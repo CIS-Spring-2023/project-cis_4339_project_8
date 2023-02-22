@@ -4,13 +4,13 @@ const routes = [
   {
     path: '/',
     props: true,
-    component: () => import('../components/homePage.vue')
+    component: () => import('../components/login.vue')
   },
   {
-    path: '/login',
-    name:"login",
+    path: '/dashboard',
+    name:"dashboard",
     props: true,
-    component: () => import('../components/login.vue')
+    component: () => import('../components/homePage.vue')
   },
   {
     path: '/intakeform',
