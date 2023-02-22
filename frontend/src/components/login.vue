@@ -1,44 +1,80 @@
-
 <template>
-  <form name="login-form" >
-    <div class="mb-3">
-      <label for="username">Username: </label>
-      <input type="text" id="username" v-model="input.username" />
-    </div>
-    <div class="mb-3">
-      <label for="password">Password: </label>
-      <input type="password" id="password" v-model="input.password" />
-    </div>
-    <button class="btn btn-outline-dark" type="submit">
-      Login
-    </button>
-
-    <p>Username is: {{"shaheer"}}</p>
-    <p>Password is: {{"123"}}</p>
-  </form>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <p v-if="loginError" class="error">{{ loginError }}</p>
+  </div>
 </template>
-
 
 <script>
 export default {
-  name: 'LoginView',
-  data(){
-    return{
-        input:{
-            username: "",
-            password: ""
-        }
+  data() {
+    return {
+      email: '',
+      password: '',
+      loginError: ''
     }
   },
-  methods:{
-    login(){
-      //make sure username OR password are not empty
-      if(this.input.username != "shaheer" || this.input.password != "123"){
-        console.log("authenticated")
-      }else{
-        console.log("Username and Password can not be empty")
+  methods: {
+    submitForm() {
+      if (this.email === 'admin@example.com' && this.password === 'password') {
+        // if the email and password match, redirect to the home page
+        window.location.href = '/dashboard'
+      } else {
+        // if the email and password don't match, set the loginError message
+        this.loginError = 'Invalid credentials. Please try again.'
       }
     }
-  },
+  }
 }
 </script>
+
+<style>
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-group {
+  margin: 10px 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  text-align: left;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+</style>
