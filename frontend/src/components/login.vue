@@ -27,12 +27,14 @@ export default {
   },
   methods: {
     submitForm() {
-      if (this.email === 'admin@example.com' && this.password === 'password') {
-        // if the email and password match, redirect to the home page
-        window.location.href = '/dashboard'
+      // authenticate the user
+      const authenticated = this.email === 'admin@example.com' && this.password === 'password';
+      if (authenticated) {
+        // if the email and password match, redirect to the dashboard page
+        this.$router.push({ name: 'dashboard' });
       } else {
         // if the email and password don't match, set the loginError message
-        this.loginError = 'Invalid credentials. Please try again.'
+        this.loginError = 'Invalid credentials. Please try again.';
       }
     }
   }
