@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/CIS-Spring-2023/project-cis_4339_project_8/issues"
   },
-  "homepage": "https://github.com/CIS-Spring-2023/project-cis_4339_project_8#readme"
+  "homepage": "https://github.com/CIS-Spring-2023/project-cis_4339_project_8#readme",
+  "dependencies": {
+    "vue-chartjs": "^5.2.0"
+  }
 }
