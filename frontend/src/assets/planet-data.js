@@ -5,7 +5,7 @@ export const planetChartData = {
       datasets: [
         {
           label: "Customers by Zipcode",
-          data: [0, 0, 1, 2,],
+          data: [23, 50, 71, 26,],
           backgroundColor: [
             "#FF6384",
             "#36A2EB",
