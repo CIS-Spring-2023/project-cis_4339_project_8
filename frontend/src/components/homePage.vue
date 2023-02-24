@@ -2,11 +2,14 @@
 import { DateTime } from 'luxon'
 import axios from 'axios'
 import AttendanceChart from './barChart.vue'
+import PlanetChart from "./PlanetChart.vue";
 const apiURL = import.meta.env.VITE_ROOT_API
 
 export default {
   components: {
-    AttendanceChart
+    PlanetChart,
+    AttendanceChart,
+    
   },
   data() {
     return {
@@ -105,6 +108,7 @@ export default {
             </tbody>
           </table>
           <div>
+            <PlanetChart />
             <AttendanceChart
               v-if="!loading && !error"
               :label="labels"
