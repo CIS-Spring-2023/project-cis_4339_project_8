@@ -7,6 +7,12 @@ const routes = [
     component: () => import('../components/login.vue')
   },
   {
+    path: '/login',
+    name: "login",
+    props: true,
+    component: () => import('../components/login.vue')
+  },
+  {
     path: '/dashboard',
     name:"dashboard",
     props: true,
@@ -44,6 +50,11 @@ const routes = [
     name: 'eventdetails',
     props: true,
     component: () => import('../components/eventDetails.vue')
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: () => import('../components/logout.vue')
   }
 ]
 const router = createRouter({

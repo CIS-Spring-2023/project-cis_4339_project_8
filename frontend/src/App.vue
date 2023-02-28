@@ -56,6 +56,12 @@ export default {
         Find Event
       </router-link>
     </li>
+    <li>
+      <router-link to="/logout">
+        <span style="position: relative; top: 6px" class="material-icons">logout</span>
+        Log Out
+      </router-link>
+    </li>
   </ul>
 </nav>
       </header>
