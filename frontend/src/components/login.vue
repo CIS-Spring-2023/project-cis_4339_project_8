@@ -45,6 +45,7 @@ export default {
       if (authenticated) {
         // if the email and password match, redirect to the dashboard page
         this.$router.push({ name: 'dashboard' });
+        this.$root.isAuthenticated = true;
       } else {
         // if the email and password don't match, set the loginError message
         this.loginError = 'Invalid credentials. Please try again.';
