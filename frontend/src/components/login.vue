@@ -39,8 +39,10 @@ export default {
       let authenticated = false;
       if (this.userType === 'viewer') {
         authenticated = this.email === 'viewer@example.com' && this.password === 'password123';
+        this.$root.loginType = 'Viewer';
       } else if (this.userType === 'editor') {
         authenticated = this.email === 'editor@example.com' && this.password === 'password123';
+        this.$root.loginType = 'Editor';
       }
       if (authenticated) {
         // if the email and password match, redirect to the dashboard page
