@@ -20,6 +20,12 @@
       <button type="submit">Submit</button>
     </form>
     <p v-if="loginError" class="error">{{ loginError }}</p>
+    <div class="credentials">
+      <span>Login Credentials:</span>
+      <hr>
+      <p><strong>Viewer:</strong> viewer@example.com / password123</p>
+      <p><strong>Editor:</strong> editor@example.com / password123</p>
+    </div>
   </div>
 </template>
 
@@ -115,5 +121,16 @@ button[type="submit"] {
   color: red;
   font-size: 14px;
   margin-top: 10px;
+}
+.credentials {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
 }
 </style>
