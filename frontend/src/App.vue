@@ -63,6 +63,12 @@ export default {
         Find Event
       </router-link>
     </li>
+    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
+      <router-link to="/services">
+        <span style="position: relative; top: 6px" class="material-icons">search</span>
+        Services
+      </router-link>
+    </li>
     <li v-if="isAuthenticated">
       <router-link to="/logout">
         <span style="position: relative; top: 6px" class="material-icons">logout</span>

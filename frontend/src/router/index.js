@@ -52,6 +52,12 @@ const routes = [
     component: () => import('../components/eventDetails.vue')
   },
   {
+    path: '/services',
+    name: 'Services',
+    props: true,
+    component: () => import('../components/services.vue')
+  },  
+  {
     path: '/logout',
     name: 'logout',
     component: () => import('../components/logout.vue')
