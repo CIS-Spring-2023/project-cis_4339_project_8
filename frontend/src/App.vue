@@ -66,7 +66,7 @@ export default {
     <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
       <router-link to="/services">
         <span style="position: relative; top: 6px" class="material-icons">search</span>
-        Services
+        Find Services
       </router-link>
     </li>
     <li v-if="isAuthenticated">
