@@ -33,7 +33,7 @@ export default {
         Login
       </router-link>
     </li>
-    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
+    <li v-if="!isAuthenticated">
       <router-link to="/dashboard">
         <span style="position: relative; top: 6px" class="material-icons">dashboard</span>
         Dashboard
