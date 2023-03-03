@@ -39,6 +39,12 @@ export default {
         Dashboard
       </router-link>
     </li>
+    <li v-if="isAuthenticated">
+      <router-link to="/dashboard">
+        <span style="position: relative; top: 6px" class="material-icons">dashboard</span>
+        Dashboard
+      </router-link>
+    </li>
     <li v-if="isAuthenticated && loginType === 'Editor'">
       <router-link to="/intakeform">
         <span style="position: relative; top: 6px" class="material-icons">people</span>
