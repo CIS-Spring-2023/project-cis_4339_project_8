@@ -90,7 +90,11 @@ export default {
   },
   computed: {
     filteredServices() {
-      return this.services.filter((service) => service.status === "active");
+      if (this.userType === 'editor') {
+        return this.services;
+      } else {
+        return this.services.filter((service) => service.status === "active");
+      }
     },
   },
   methods: {
@@ -122,3 +126,4 @@ export default {
   }
 };
 </script>
+
