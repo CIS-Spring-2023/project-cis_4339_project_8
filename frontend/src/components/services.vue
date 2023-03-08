@@ -1,3 +1,4 @@
+// Reference: ChatGPT for some basis of code 
 <template>
   <div class="container mx-auto px-4">
     <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center my-10">Services</h1>
