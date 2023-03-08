@@ -101,6 +101,7 @@ export default {
     createService() {
       this.editedService = { name: "", status: "active" };
       this.editingService = this.services.length;
+      this.services.push(this.editedService);
     },
     editService(index) {
       this.editingService = index;
