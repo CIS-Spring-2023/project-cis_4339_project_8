@@ -1,4 +1,4 @@
-export const planetChartData = {
+export const chartdata = {
     type: "pie",
     data: {
       labels: ["77532", "77338", "77885", "76532"],
@@ -25,5 +25,5 @@ export const planetChartData = {
     },
   };
   
-  export default planetChartData;
+  export default chartdata;
   

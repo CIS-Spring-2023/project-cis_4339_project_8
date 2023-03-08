@@ -1,28 +1,28 @@
 <template>
   <div>
     <!-- canvas element for chart -->
-    <canvas id="planet-chart"></canvas>
+    <canvas id="zipppie"></canvas>
   </div>
 </template>
 
 
 <script>
 import { Chart, registerables } from 'chart.js'
-import planetChartData from '../assets/planet-data.js'
+import chartdata from '../assets/zipcodedata.js'
 
 //we have to register the registerables with Chart object
 Chart.register(...registerables);
 export default {
-  name: 'PlanetChart',
+  name: 'ZipPie',
   data() {
     return {
-      planetChartData: planetChartData
+      chartdata: chartdata
     }
   },
   //establish Chart object after mounting the component
   mounted() {
-    const ctx = document.getElementById('planet-chart');
-    new Chart(ctx, this.planetChartData);
+    const ctx = document.getElementById('zipppie');
+    new Chart(ctx, this.chartdata);
   }
 }
 </script>
