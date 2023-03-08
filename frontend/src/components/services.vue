@@ -83,12 +83,7 @@
 export default {
   data() {
     return {
-      services: [
-        { name: "Family Support", status: "active" },
-        { name: "Adult Education", status: "active" },
-        { name: "Youth Services Program", status: "inactive" },
-        { name: "Early Childhood Education", status: "inactive" }
-      ],
+      services: [],
       editingService: null,
       editedService: {}
     };
