@@ -32,7 +32,7 @@
       </tbody>
     </table>
 
-    <div class="my-4">
+    <div class="my-4" v-if="!editingService">
       <button 
         class="bg-green-700 text-white rounded px-4 py-2"
         type="submit"
