@@ -102,6 +102,7 @@ export default {
       this.editedService = { name: "", status: "active" };
       this.editingService = this.services.length;
       this.services.push(this.editedService);
+      this.saveServices();
     },
     editService(index) {
       this.editingService = index;
@@ -109,6 +110,7 @@ export default {
     },
     deleteService(index) {
       this.services.splice(index, 1);
+      this.saveServices();
     },
     saveService() {
       if (this.editingService !== null) {
@@ -118,11 +120,24 @@ export default {
         this.services.push(this.editedService);
       }
       this.editedService = {};
+      this.saveServices();
     },
     cancelEdit() {
       this.editingService = null;
       this.editedService = {};
+    },
+    saveServices() {
+      localStorage.setItem('services', JSON.stringify(this.services));
+    },
+    loadServices() {
+      const services = localStorage.getItem('services');
+      if (services) {
+        this.services = JSON.parse(services);
+      }
     }
+  },
+  mounted() {
+    this.loadServices();
   }
 };
 </script>
