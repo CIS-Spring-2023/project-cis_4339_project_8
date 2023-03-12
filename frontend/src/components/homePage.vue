@@ -2,7 +2,7 @@
 import { DateTime } from 'luxon'
 import axios from 'axios'
 import AttendanceChart from './barChart.vue'
-import ZipPie from "./ZipPie.vue";
+import ZipPie from "./ZipPie.vue"; // Added my pie chart and imported it above har chart so it looks presentable
 const apiURL = import.meta.env.VITE_ROOT_API
 
 export default {
@@ -70,7 +70,7 @@ export default {
       this.$router.push({ name: 'eventdetails', params: { id: eventID } })
     }
   }
-}
+} // added pie chart below right above attendance chart
 </script>
 
 <template>
@@ -108,7 +108,7 @@ export default {
             </tbody>
           </table>
           <div>
-            <ZipPie />
+            <ZipPie /> 
             <AttendanceChart
               v-if="!loading && !error"
               :label="labels"

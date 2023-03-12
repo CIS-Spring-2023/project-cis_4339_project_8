@@ -13,7 +13,7 @@ import chartdata from '../assets/zipcodedata.js'
 //we have to register the registerables with Chart object
 Chart.register(...registerables);
 export default {
-  name: 'ZipPie',
+  name: 'ZipPie', // Pulled template from chart.js and plannetchart from class
   data() {
     return {
       chartdata: chartdata

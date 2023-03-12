@@ -1,10 +1,10 @@
-export const chartdata = {
+export const chartdata = { // Created Pie chart from chart,js template on their website
     type: "pie",
     data: {
-      labels: ["77532", "77338", "77885", "76532"],
+      labels: ["77532", "77338", "77885", "76532"], // Hardcodes random are codes for testing
       datasets: [
         {
-          label: "Customers by Zipcode",
+          label: "Customers by Zipcode", // used the same setup as Planetchart data code
           data: [23, 50, 71, 26,],
           backgroundColor: [
             "#FF6384",
@@ -25,5 +25,5 @@ export const chartdata = {
     },
   };
   
-  export default chartdata;
+  export default chartdata; 
   
