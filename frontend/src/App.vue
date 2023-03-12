@@ -6,7 +6,7 @@ export default {
   name: 'App',
   data() {
     return {
-      orgName: 'Dataplatform',
+      orgName: 'CIS4339 Spring 2023 Project',
       isAuthenticated: false,
       loginType: ''
     }
