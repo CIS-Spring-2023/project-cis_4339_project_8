@@ -1,18 +1,22 @@
 // Reference: ChatGPT for some basis of code 
 <template>
+    <!-- Create a login form -->
   <div class="login-container">
     <h1>Dataplatform Login</h1>
     <form @submit.prevent="submitForm">
       <div class="form-group">
         <label for="email">Email:</label>
+        <!-- Bind email input value to email data property -->
         <input type="email" id="email" v-model="email" required placeholder="example@example.com">
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
+        <!-- Bind password input value to password data property -->
         <input type="password" id="password" v-model="password" required placeholder="Password">
       </div>
       <div class="form-group">
         <label for="user-type">Select User Type:</label>
+        <!-- Bind user type select value to userType data property -->
         <select id="user-type" v-model="userType">
           <option value="viewer">Viewer</option>
           <option value="editor">Editor</option>
@@ -20,6 +24,7 @@
       </div>
       <button type="submit">Submit</button>
     </form>
+    <!-- Show loginError message if it exists -->
     <p v-if="loginError" class="error">{{ loginError }}</p>
     <div class="credentials">
       <span>Login Credentials:</span>
