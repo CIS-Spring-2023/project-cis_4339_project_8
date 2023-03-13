@@ -15,15 +15,10 @@
           <td class="py-2">{{ service.name }}</td>
           <td class="py-2">{{ service.status }}</td>
           <td class="py-2">
-            <button 
-              class="bg-red-700 text-white rounded px-4 py-2 mr-2"
-              type="submit"
-              @click="editService(index)">
+            <button class="bg-red-700 text-white rounded px-4 py-2 mr-2" type="submit" @click="editService(index)">
               Edit
             </button>
-            <button
-              class="border border-red-700 bg-white text-red-700 rounded px-4 py-2"
-              type="submit"
+            <button class="border border-red-700 bg-white text-red-700 rounded px-4 py-2" type="submit"
               @click="deleteService(index)">
               Delete
             </button>
@@ -33,10 +28,7 @@
     </table>
 
     <div class="my-4" v-if="!editingService">
-      <button 
-        class="bg-green-700 text-white rounded px-4 py-2"
-        type="submit"
-        @click="createService()">
+      <button class="bg-green-700 text-white rounded px-4 py-2" type="submit" @click="createService()">
         Create Service
       </button>
     </div>
@@ -46,32 +38,21 @@
       <form>
         <div class="my-2">
           <label for="name" class="block font-bold mb-2">Name:</label>
-          <input
-            type="text"
-            id="name"
-            v-model="editedService.name"
+          <input type="text" id="name" v-model="editedService.name"
             class="block w-full border border-gray-400 rounded px-4 py-2">
         </div>
         <div class="my-2">
           <label for="status" class="block font-bold mb-2">Status:</label>
-          <select
-            id="status"
-            v-model="editedService.status"
+          <select id="status" v-model="editedService.status"
             class="block w-full border border-gray-400 rounded px-4 py-2">
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select>
         </div>
-        <button
-          type="submit"
-          class="bg-green-700 text-white rounded px-4 py-2 mr-2"
-          @click.prevent="saveService()">
+        <button type="submit" class="bg-green-700 text-white rounded px-4 py-2 mr-2" @click.prevent="saveService()">
           Save
         </button>
-        <button
-          type="button"
-          class="border border-red-700 bg-white text-red-700 rounded px-4 py-2"
-          @click="cancelEdit()">
+        <button type="button" class="border border-red-700 bg-white text-red-700 rounded px-4 py-2" @click="cancelEdit()">
           Cancel
         </button>
       </form>
