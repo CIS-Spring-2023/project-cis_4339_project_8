@@ -1,7 +1,8 @@
-// Reference: ChatGPT for some basis of code 
+<!-- Reference: ChatGPT for some basis of code  -->
 <template>
   <div class="container mx-auto px-4">
     <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center my-10">Services</h1>
+    <event-form :active-services="filteredServices"></event-form>
     <table class="w-full">
       <thead>
         <tr class="text-left font-bold">
@@ -11,6 +12,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- For every service in filtered services that filters by status of active, give the name and the status of the service -->
         <tr v-for="(service, index) in filteredServices" :key="index" class="border-b border-gray-400">
           <td class="py-2">{{ service.name }}</td>
           <td class="py-2">{{ service.status }}</td>
@@ -80,10 +82,16 @@
 </template>
 
 <script>
+import EventForm from "@/components/eventForm.vue";
+// import the event form as a prop to show the eventform so that we may pass props between services.vue and eventForm.vue
 export default {
+  components:{
+    EventForm,
+  },
   data() {
     return {
-      services: [],
+      // instantiate an empty array of services so that it can be dynamically populated 
+      services: [], 
       editingService: null,
       editedService: {}
     };
@@ -95,13 +103,16 @@ export default {
       } else {
         return this.services.filter((service) => service.status === "active");
       }
+      // return all services if the user is an editor but only give active services to anybody else (in this case a viewer)
     },
   },
   methods: {
+    // CRUD ops for the service creation, edit, soft delete, and an extra save, cancel, and load services so that whenever a user inputs the service and its status, it is saved locally to that user and shows up when switching tabs or when logging in once again
     createService() {
       this.editedService = { name: "", status: "active" };
       this.editingService = this.services.length;
       this.services.push(this.editedService);
+      this.saveServices();
     },
     editService(index) {
       this.editingService = index;
@@ -109,6 +120,7 @@ export default {
     },
     deleteService(index) {
       this.services.splice(index, 1);
+      this.saveServices();
     },
     saveService() {
       if (this.editingService !== null) {
@@ -118,12 +130,24 @@ export default {
         this.services.push(this.editedService);
       }
       this.editedService = {};
+      this.saveServices();
     },
     cancelEdit() {
       this.editingService = null;
       this.editedService = {};
+    },
+    saveServices() {
+      localStorage.setItem('services', JSON.stringify(this.services));
+    },
+    loadServices() {
+      const services = localStorage.getItem('services');
+      if (services) {
+        this.services = JSON.parse(services);
+      }
     }
+  },
+  mounted() {
+    this.loadServices();
   }
 };
 </script>
-

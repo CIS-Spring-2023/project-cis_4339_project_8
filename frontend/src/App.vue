@@ -6,7 +6,7 @@ export default {
   name: 'App',
   data() {
     return {
-      orgName: 'Dataplatform',
+      orgName: 'CIS4339 Spring 2023 Project',
       isAuthenticated: false,
       loginType: ''
     }
@@ -51,10 +51,10 @@ export default {
         Client Intake Form
       </router-link>
     </li>
-    <li v-if="isAuthenticated && loginType === 'Editor'">
-      <router-link to="/eventform">
+    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
+      <router-link to="/services">
         <span style="position: relative; top: 6px" class="material-icons">event</span>
-        Create Event
+        Services/Event
       </router-link>
     </li>
     <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
@@ -67,12 +67,6 @@ export default {
       <router-link to="/findevents">
         <span style="position: relative; top: 6px" class="material-icons">search</span>
         Find Event
-      </router-link>
-    </li>
-    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
-      <router-link to="/services">
-        <span style="position: relative; top: 6px" class="material-icons">search</span>
-        Find Services
       </router-link>
     </li>
     <li v-if="isAuthenticated">

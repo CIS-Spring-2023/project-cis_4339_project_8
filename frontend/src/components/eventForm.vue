@@ -1,10 +1,18 @@
+<!-- Reference: Some basis of code using ChatGPT -->
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import axios from 'axios'
 const apiURL = import.meta.env.VITE_ROOT_API
 
+//make it so that services that are active are being passed to this child component for props 
 export default {
+  props:{
+    activeServices:{
+      type: Array,
+      required: true
+    }
+  },
   setup() {
     return { v$: useVuelidate({ $autoDirty: true }) }
   },
@@ -13,7 +21,7 @@ export default {
       // removed unnecessary extra array to track services
       event: {
         name: '',
-        services: [],
+        services: [], //empty array for services that is to be added upon and populated whenever a user adds services, edits them, or deletes them
         date: '',
         address: {
           line1: '',
@@ -136,56 +144,18 @@ export default {
           <!-- form field -->
           <div class="flex flex-col grid-cols-3">
             <label>Services Offered at Event</label>
-            <div>
-              <label for="familySupport" class="inline-flex items-center">
+            <!-- loop over array of active services and get their name and status to populate the checkbox list -->
+            <div v-for="service in activeServices" :key="service.name">
+              <label :for="service.name" class="inline-flex items-center">
                 <input
                   type="checkbox"
-                  id="familySupport"
-                  value="Family Support"
+                  :id="service.name"
+                  :value="service.name"
                   v-model="event.services"
                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
                   notchecked
                 />
-                <span class="ml-2">Family Support</span>
-              </label>
-            </div>
-            <div>
-              <label for="adultEducation" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="adultEducation"
-                  value="Adult Education"
-                  v-model="event.services"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Adult Education</span>
-              </label>
-            </div>
-            <div>
-              <label for="youthServices" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="youthServices"
-                  value="Youth Services Program"
-                  v-model="event.services"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Youth Services Program</span>
-              </label>
-            </div>
-            <div>
-              <label for="childhoodEducation" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="childhoodEducation"
-                  value="Early Childhood Education"
-                  v-model="event.services"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Early Childhood Education</span>
+                <span class="ml-2">{{ service.name }}</span>
               </label>
             </div>
           </div>

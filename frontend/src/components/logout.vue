@@ -1,5 +1,6 @@
 <template>
     <div class="logout-container">
+    <!-- Logout confirmation -->
       <h2 class="logout-title">Are you sure you want to log out?</h2>
       <button class="logout-button" @click="logout">Log out</button>
     </div>
@@ -9,7 +10,9 @@
   export default {
     methods: {
       logout() {
+      // Update the authentication status to false on "App.vue"
         this.$root.isAuthenticated = false
+      // Navigate to the login page
         this.$router.push({ name: 'login' })
       }
     }
