@@ -2,6 +2,42 @@ const uuid = require('uuid')
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+// collection for users
+const userDataSchema = new Schema(
+  {
+    //make both the email and password true since they will be needed at login and save to collection user
+    email: {
+      type: String,
+      required: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+  },
+  {
+    collection: 'user'
+  }
+)
+
+// collection for services
+const serviceDataSchema = new Schema(
+  {
+    //services only have a name and status, require both since you need a service and need to know whether its active or inactive
+    name: {
+      type: String,
+      required: true
+    },
+    status: {
+      type: String,
+      required: true
+    },
+  },
+  {
+    collection: 'service'
+  }
+)
+
 // collection for org
 const orgDataSchema = new Schema(
   {
@@ -133,6 +169,7 @@ const eventDataSchema = new Schema(
 const clients = mongoose.model('client', clientDataSchema)
 const orgs = mongoose.model('org', orgDataSchema)
 const events = mongoose.model('event', eventDataSchema)
-
+const users = mongoose.model('user', userDataSchema)
+const services = mongoose.model('service', serviceDataSchema)
 // package the models in an object to export
-module.exports = { clients, orgs, events }
+module.exports = { clients, orgs, events, users, services }
