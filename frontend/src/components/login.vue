@@ -78,23 +78,87 @@ export default defineComponent({
 })
 </script>
 <style>
-.login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #f7f7f7;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
+  .login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
 
-h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #444;
-}
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-.form-group {
-  margin: 20px 0;
-}
+  .form-group {
+    margin: 20px 0;
+  }
+
+  label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #444;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  button[type="submit"] {
+    background-color: #2a80b9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #1c5a7d;
+  }
+
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .credentials {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    font-family: 'Montserrat', sans-serif;
+  }
 </style>
