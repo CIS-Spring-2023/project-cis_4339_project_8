@@ -14,6 +14,14 @@ const userDataSchema = new Schema(
       type: String,
       required: true
     },
+    userType: {
+      type: String,
+      required: true
+    },
+    org: {
+      type: String,
+      required: true
+    },
   },
   {
     collection: 'user'
@@ -29,6 +37,10 @@ const serviceDataSchema = new Schema(
       required: true
     },
     status: {
+      type: String,
+      required: true
+    },
+    org: {
       type: String,
       required: true
     },
