@@ -1,8 +1,8 @@
 <!-- Reference: ChatGPT for some basis of code  -->
 <template>
   <div class="container mx-auto px-4">
-    <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center my-10">Services</h1>
-    <event-form :active-services="filteredServices"></event-form>
+        <event-form :active-services="filteredServices"></event-form>
+        <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center my-10">Services</h1>
     <table class="w-full">
       <thead>
         <tr class="text-left font-bold">
