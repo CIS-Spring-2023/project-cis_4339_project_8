@@ -82,18 +82,19 @@
 </template>
 
 <script>
+import axios from 'axios';
 import EventForm from "@/components/eventForm.vue";
-// import the event form as a prop to show the eventform so that we may pass props between services.vue and eventForm.vue
+const apiURL = import.meta.env.VITE_ROOT_API
+
 export default {
   components:{
     EventForm,
   },
   data() {
     return {
-      // instantiate an empty array of services so that it can be dynamically populated 
-      services: [], 
+      services: [],
       editingService: null,
-      editedService: {}
+      editedService: {},
     };
   },
   computed: {
@@ -103,16 +104,13 @@ export default {
       } else {
         return this.services.filter((service) => service.status === "active");
       }
-      // return all services if the user is an editor but only give active services to anybody else (in this case a viewer)
     },
   },
   methods: {
-    // CRUD ops for the service creation, edit, soft delete, and an extra save, cancel, and load services so that whenever a user inputs the service and its status, it is saved locally to that user and shows up when switching tabs or when logging in once again
     createService() {
       this.editedService = { name: "", status: "active" };
       this.editingService = this.services.length;
       this.services.push(this.editedService);
-      this.saveServices();
     },
     editService(index) {
       this.editingService = index;
@@ -120,34 +118,44 @@ export default {
     },
     deleteService(index) {
       this.services.splice(index, 1);
-      this.saveServices();
     },
-    saveService() {
+    async saveService() {
       if (this.editingService !== null) {
         Object.assign(this.services[this.editingService], this.editedService);
-        this.editingService = null;
       } else {
         this.services.push(this.editedService);
       }
+
+      // Save the data to the database
+      try {
+        const response = await axios.post(`${apiURL}/service`, this.editedService);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+
       this.editedService = {};
-      this.saveServices();
-    },
-    cancelEdit() {
       this.editingService = null;
-      this.editedService = {};
     },
-    saveServices() {
-      localStorage.setItem('services', JSON.stringify(this.services));
+    async saveServices() {
+      try {
+        const response = await axios.post(`${apiURL}/service`, this.services);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     },
-    loadServices() {
-      const services = localStorage.getItem('services');
-      if (services) {
-        this.services = JSON.parse(services);
+    async loadServices() {
+      try {
+        const response = await axios.get(`${apiURL}/service`);
+        this.services = response.data;
+      } catch (error) {
+        console.error(error);
       }
     }
   },
-  mounted() {
-    this.loadServices();
-  }
+  async created() {
+    await this.loadServices();
+  },
 };
 </script>
