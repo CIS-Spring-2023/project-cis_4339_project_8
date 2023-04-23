@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
-// PUT update client
+// PUT update service
 router.put('/update/:id', (req, res, next) => {
   services.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, data) => {
     if (error) {
@@ -43,22 +43,6 @@ router.put('/update/:id', (req, res, next) => {
       res.json(data);
     }
   });
-});
-
-// PUT add existing client to org
-router.put('/register/:id', (req, res, next) => {
-  services.findByIdAndUpdate(
-    req.params.id,
-    { $addToSet: { orgs: org } },
-    { new: true },
-    (error, data) => {
-      if (error) {
-        return next(error);
-      } else {
-        res.json(data);
-      }
-    }
-  );
 });
 
 // hard DELETE client by ID, as per project specifications
