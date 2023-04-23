@@ -40,10 +40,6 @@ const serviceDataSchema = new Schema(
       type: String,
       required: true
     },
-    org: {
-      type: String,
-      required: true
-    },
   },
   {
     collection: 'service'
