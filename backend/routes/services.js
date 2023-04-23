@@ -35,17 +35,21 @@ router.post('/', (req, res, next) => {
 });
 
 // PUT update service
-router.put('/update/:id', (req, res, next) => {
-  services.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
+router.put('/:id', (req, res, next) => {
+    const id = req.params.id;
+    const update = req.body;
+    services.findByIdAndUpdate(id, update, {new: true}, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
   });
-});
+  
+  
 
-// hard DELETE client by ID, as per project specifications
+// hard DELETE service by ID, as per project specifications
 router.delete('/:id', (req, res, next) => {
   services.findByIdAndDelete(req.params.id, (error, data) => {
     if (error) {
