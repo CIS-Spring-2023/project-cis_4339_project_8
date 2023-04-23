@@ -31,6 +31,10 @@ const userDataSchema = new Schema(
 // collection for services
 const serviceDataSchema = new Schema(
   {
+    _id: {
+      type: String,
+      required: true
+    },
     //services only have a name and status, require both since you need a service and need to know whether its active or inactive
     name: {
       type: String,

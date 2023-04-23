@@ -1,7 +1,7 @@
 // Reference: ChatGPT for some basis of code 
 <template>
     <!-- Create a login form -->
-  <div class="login-container">
+  <div class="login-container" >
     <h1>Dataplatform Login</h1>
     <form @submit.prevent="submitForm">
       <div class="form-group">
@@ -18,7 +18,6 @@
         <label for="user-type">Select User Type:</label>
         <!-- Bind user type select value to userType data property -->
         <select id="user-type" v-model="userType">
-          <option value="viewer">Viewer</option>
           <option value="editor">Editor</option>
         </select>
       </div>
@@ -29,7 +28,6 @@
     <div class="credentials">
       <span>Login Credentials:</span>
       <hr>
-      <p><strong>Viewer:</strong> viewer@example.com / password123</p>
       <p><strong>Editor:</strong> editor@example.com / password123</p>
     </div>
   </div>
@@ -41,7 +39,7 @@ export default {
     return {
       email: '',
       password: '',
-      userType: 'viewer',
+      userType: 'editor',
       loginError: ''
     }
   },

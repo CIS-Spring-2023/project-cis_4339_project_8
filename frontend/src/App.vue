@@ -51,19 +51,19 @@ export default {
         Client Intake Form
       </router-link>
     </li>
-    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
+    <li v-if="!isAuthenticated || (loginType === 'Editor')">
       <router-link to="/services">
         <span style="position: relative; top: 6px" class="material-icons">event</span>
         Services/Event
       </router-link>
     </li>
-    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
+    <li v-if="!isAuthenticated || (loginType === 'Editor')">
       <router-link to="/findclient">
         <span style="position: relative; top: 6px" class="material-icons">search</span>
         Find Client
       </router-link>
     </li>
-    <li v-if="isAuthenticated && (loginType === 'Editor' || loginType === 'Viewer')">
+    <li v-if="!isAuthenticated || (loginType === 'Editor')">
       <router-link to="/findevents">
         <span style="position: relative; top: 6px" class="material-icons">search</span>
         Find Event
