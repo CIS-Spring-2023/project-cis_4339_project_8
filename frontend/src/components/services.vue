@@ -121,7 +121,7 @@ export default {
     },
     async saveService() {
       try {
-          await axios.put(`/api/services/${this.editedService._id}`, this.editedService);
+          await axios.put(`${apiURL}/service/${this.editedService._id}`, this.editedService);
           this.editingService = null;
           this.editedService = {};
           } 
