@@ -120,23 +120,16 @@ export default {
       this.services.splice(index, 1);
     },
     async saveService() {
-      if (this.editingService !== null) {
-        Object.assign(this.services[this.editingService], this.editedService);
-      } else {
-        this.services.push(this.editedService);
-      }
-
-      // Save the data to the database
       try {
-        const response = await axios.post(`${apiURL}/service`, this.editedService);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-
-      this.editedService = {};
-      this.editingService = null;
+          await axios.put(`/api/services/${this.editedService._id}`, this.editedService);
+          this.editingService = null;
+          this.editedService = {};
+          } 
+          catch (error) {
+            console.error(error);
+          }
     },
+
     async saveServices() {
       try {
         const response = await axios.post(`${apiURL}/service`, this.services);

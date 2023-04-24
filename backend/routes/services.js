@@ -36,16 +36,19 @@ router.post('/', (req, res, next) => {
 
 // PUT update service
 router.put('/:id', (req, res, next) => {
-    const id = req.params.id;
-    const update = req.body;
-    services.findByIdAndUpdate(id, update, {new: true}, (error, data) => {
-      if (error) {
-        return next(error);
-      } else {
-        res.json(data);
-      }
-    });
+  const id = req.params.id;
+  const update = req.body;
+  services.findOneAndUpdate({ _id: id }, update, { new: true }, (error, data) => {
+    if (error) {
+      return next(error);
+    } else if (!data) {
+      return res.status(404).send('Service not found');
+    } else {
+      res.json(data);
+    }
   });
+});
+
   
   
 
