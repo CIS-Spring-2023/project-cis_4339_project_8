@@ -28,4 +28,7 @@ The login component has been designed to provide authentication functionality, w
 To ensure ease of use, a logout navigation button has been included in the application. Upon clicking this button, users are prompted to confirm their decision to log out of the system.
 
 ## Sprint 3 Portion:
+Using the new requirements for the third sprint, this third sprint involves expanding the backend API, setting up MongoDB, and adding new functionality to the API services. This will integrate the new services with the existing backend code and will be reflected in the API documentation for the extensions using Postman. 
+
+## Postman Documentation:
 https://documenter.getpostman.com/view/23048259/2s93Y5RgDc
