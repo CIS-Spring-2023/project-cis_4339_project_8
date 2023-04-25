@@ -108,13 +108,13 @@ export default {
             </tbody>
           </table>
           <div>
-            <ZipPie /> 
+            
             <AttendanceChart
               v-if="!loading && !error"
               :label="labels"
               :chart-data="chartData"
             ></AttendanceChart>
-
+            <ZipPie />
             <!-- Start of loading animation -->
             <div class="mt-40" v-if="loading">
               <p
