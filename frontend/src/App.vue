@@ -8,12 +8,16 @@ export default {
     return {
       orgName: 'CIS4339 Spring 2023 Project',
       isAuthenticated: false,
-      loginType: ''
+      loginType: '',
+      zip: []
     }
   },
   created() {
     axios.get(`${apiURL}/org`).then((res) => {
       this.orgName = res.data.name
+    })
+    axios.get(`${apiURL}/client/zip`).then((res) => {
+      this.zipCodes = res.data
     })
   }
 }
