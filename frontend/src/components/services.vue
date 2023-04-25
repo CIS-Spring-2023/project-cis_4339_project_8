@@ -129,7 +129,10 @@ export default {
             console.error(error);
           }
     },
-
+    cancelEdit() {
+    this.editingService = null;
+    this.editedService = {};
+    },
     async saveServices() {
       try {
         const response = await axios.post(`${apiURL}/service`, this.services);
