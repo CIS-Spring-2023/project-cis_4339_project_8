@@ -26,7 +26,7 @@ Follow instructions in frontend README for setup and running as a local instance
 For our project, the .env file that you are required to make contains VITE_ROOT_API=http://localhost:3000
 
 ```
-remember to npm install to install the all dependencies for this project 
+remember to npm install to install all dependencies for this project 
 ```
 
 ## Sprint 2 Portion:
@@ -37,7 +37,7 @@ The login component has been designed to provide authentication functionality, w
 To ensure ease of use, a logout navigation button has been included in the application. Upon clicking this button, users are prompted to confirm their decision to log out of the system.
 
 ## Sprint 3 Portion:
-Using the new requirements for the third sprint, this third sprint involves expanding the backend API, setting up MongoDB, and adding new functionality to the API services. This will integrate the new services with the existing backend code and will be reflected in the API documentation for the extensions using Postman. 
+Using the new requirements for the third sprint, this third sprint involves expanding the backend API, setting up MongoDB, and adding new functionality to the API services. This will integrate the new services with the existing backend code and will be reflected in the API documentation for the extensions using Postman. In order to run the web application, cd to backend on one terminal and cd to frontend on another terminal, on the backend enter the command ```npm start``` and on the frontend enter the command ```npm run dev```. 
 
 ## Postman Documentation:
 https://documenter.getpostman.com/view/23048259/2s93Y5RgDc
