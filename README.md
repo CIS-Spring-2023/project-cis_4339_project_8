@@ -13,12 +13,21 @@ This project uses NodeJS and MongoDB.
 cd backend
 ```
 Follow instructions in backend README for setup and running as a local instance.
+For our project, the .env file that you are required to make contains:
+MONGO_URL = mongodb+srv://sprint3UN:ZSzm1RdCBep3iww2@sprint3.kdvc4gy.mongodb.net/test
+PORT = 3000
+ORG = "6789"
 
 ## Frontend Vue 3 Application
 ```
 cd frontend
 ```
 Follow instructions in frontend README for setup and running as a local instance.
+For our project, the .env file that you are required to make contains VITE_ROOT_API=http://localhost:3000
+
+```
+remember to npm install to install the all dependencies for this project 
+```
 
 ## Sprint 2 Portion:
 In accordance with the requirements of Sprint 2, we have successfully incorporated several features into the existing front-end implementation. Specifically, the login portion, dashboard portion, and services portion have been integrated.
